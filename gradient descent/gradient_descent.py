@@ -1,10 +1,10 @@
 import numpy as np
-
+import pandas as pd
 def gradient_descent(x,y):
     m_curr=b_curr=0
     iterations=10000
     n=len(x)
-    learning_rate=0.05
+    learning_rate=0.00021
     
     
     for i in range(iterations):
@@ -15,7 +15,11 @@ def gradient_descent(x,y):
         m_curr-=learning_rate*md
         b_curr-=learning_rate*bd
         print("m {}, b {}, cost {}, iteration {}".format(m_curr,b_curr,cost,i))
-    
+'''   
 x=np.array([1,2,3,4,5])
 y=np.array([5,7,9,11,13])
+'''
+d=pd.read_csv('test_scores.csv')
+x=np.array(d.math)
+y=np.array(d.cs)
 gradient_descent(x,y)
